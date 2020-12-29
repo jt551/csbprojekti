@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cards</title>
+  </head>
+  <body>
+    <h1>Your card details</h1>
+    {% if cards %}    
+      {% for card in cards %}
+      <li>{{ card.cardnumber }} <span>( {{ card.csc }} )</span></li>      
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No credit card details found</p>
+    {% endif %}
+    <p>Add new card</p>
+    <form action="/flawedapp/card/" method="POST">
+      {% csrf_token %}
+      <label for="name">Name</label>
+      <input id="name" type="text" name="name" /><br>
+      <label for="number">Card number</label>
+      <input id="number" type="text" name="cardnumber" /><br>
+      <label for="csc">Security code</label>
+      <input id="csc" type="text" name="csc" /><br>
+      <input type="submit" value="Add" />
+    </form>
+    
+  </body>
+</html>

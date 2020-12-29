@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Details</title>
+  </head>
+  <body>
+    <h1>ToDo Item Details</h1>
+    {% for item in todo_item %}    
+    <h2>{{ item.title }}</h2>    
+    <h4>{{ item.text }}</h4>
+    <h4>Item id : {{ item.id }}</h4>
+    {% endfor %}
+  </body>
+</html>

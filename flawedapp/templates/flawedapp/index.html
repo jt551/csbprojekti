@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>ToDo List</h1>
+    <a href="account/">Account page</a>
+    <a href="/logout/">Logout</a>
+    <p>Add new todo item</p>
+    <form action="add/" method="POST">
+      <label for="formtitle">Title</label>
+      <input id="formtitle" type="text" name="title" />
+      <label for="formtext">Task</label>
+      <input id="formtext" type="text" name="text" />
+      <input type="submit" value="Add" />
+    </form>
+    <a href="search/">Search from text body</a>
+    <h2>List of current todo's</h2>
+    {% if todo_list %}
+    <ul>
+      {% for todo_item in todo_list %}
+      <li style="font-weight: bold">
+        <a href="details/{{todo_item.id}}">{{ todo_item.title }}</a><a href="delete?id={{todo_item.id}}"><button>Delete</button></a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>You have no todo items in your list</p>
+    {% endif %}
+    <h3></h3>
+  </body>
+</html>
